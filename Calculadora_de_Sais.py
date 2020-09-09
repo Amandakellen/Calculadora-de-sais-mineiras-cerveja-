@@ -111,7 +111,10 @@ class calculo_sais():
         print(self.tipoa,'\n',self.tipoc,'\nSulfato de Cálcio: ',self.calculo_sc,' g \nSulfato de Magnésio: ',self.calculo_sm,' g \n Cloreto de Cálcio: ',self.calculo_cc,' g')
 
 
-
+resposta='1'
 obj=calculo_sais()
-obj.menu()
-obj.resultado()
+while resposta=='1':
+    obj.menu()
+    obj.resultado()
+    resposta=input('Deseja executar novamente?\n(1)Sim\n(2)Não\n')
+
