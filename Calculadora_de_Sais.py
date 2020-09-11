@@ -1,8 +1,7 @@
 
 class calculo_sais():
-    def __init__(self,agua,cerveja,litro):
+    def __init__(self,agua,litro):
         self.tipo_de_Agua=agua
-        self.tipo_de_cerveja=cerveja
         self.litros=litro
     def calculo_sulfato_de_calcio(self):
         if self.tipo_de_Agua == '1':

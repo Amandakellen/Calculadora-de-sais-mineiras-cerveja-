@@ -79,10 +79,12 @@ class interface:
 
     def janela_lavagem(self):
          self.validacao=self.validar_dado()
-
+         self.agua='1'
          if self.validacao:
              self.janela_lavagem_=Toplevel()
              self.janela_lavagem_.geometry('350x500')
+             self.calculando=Calculadora_de_Sais.calculo_sais(self.agua,float(self.litros.get()))
+             self.sulfato_calcio=self.calculando.calculo_sulfato_de_calcio()
              self.janela_lavagem_.mainloop()
          elif self.litros.get()=="":
              messagebox.showerror("ERRO!", "Digite a quantidade de Litros!")
