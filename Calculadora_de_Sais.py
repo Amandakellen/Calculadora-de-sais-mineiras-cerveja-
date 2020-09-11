@@ -1,64 +1,9 @@
 
 class calculo_sais():
-    def menu(self):
-        self.tipo_de_Agua=input('Selecione o tipo de água a ser utilizada:\n (1)Água de Lavagem\n(2)Água de Mostura\n')
-        if self.tipo_de_Agua == '1' or self.tipo_de_Agua == '2':
-            if self.tipo_de_Agua=='1':
-                print('Água de Lavagem selecionada!')
-                self.tipoa='Água de Lavagem'
-            if self.tipo_de_Agua=='2':
-                print('Água de Mostura  selecionada!')
-                self.tipoa='Água de Mostura'
-        else:
-            print('ERRO!OPÇÃO DIGITADA NÃO É UMA OPÇÃO VÁLIDA!')
-            self.tipo_de_Agua = input('Selecione novamente o tipo de água a ser utilizada:\n(1)Água de Lavagem \n(2)Água de Mostura\n')
-            while self.tipo_de_Agua != '1' and self.tipo_de_Agua != '2':
-                print('ERRO!OPÇÃO DIGITADA NÃO É UMA OPÇÃO VÁLIDA!')
-                self.tipo_de_Agua = input('Selecione novamente o tipo de água a ser utilizada:\n(1)Água de Lavagem \n(2)Água de Mostura\n')
-            if self.tipo_de_Agua=='1':
-                print('Água de Lavagem selecionada!')
-                self.tipoa = 'Água de Lavagem'
-            if self.tipo_de_Agua=='2':
-                print('Água de Mostura  selecionada!')
-                self.tipoa = 'Água de Mostura'
-        self.tipo_de_cerveja=input('Selecione o tipo de cerveja: \n (1)Cerveja Lupulada \n (2)Cerveja Maltada \n (3)Cerveja Equilibrada\n')
-        if self.tipo_de_cerveja=='1' or self.tipo_de_cerveja=='2'or self.tipo_de_cerveja=='3':
-            if self.tipo_de_cerveja=='1':
-                print('Cerveja Lupulada selecionada!')
-                self.tipoc='Cerveja Lupulada'
-            if self.tipo_de_cerveja=='2':
-                print('Cerveja Maltada selecionada!')
-                self.tipoc ='Cerveja Maltada'
-            if self.tipo_de_cerveja=='3':
-                print('Cerveja Equilibrada selecionada!')
-                self.tipoc ='Cerveja Equilibrada'
-        else:
-            print('ERRO!OPÇÃO DIGITADA NÃO É UMA OPÇÃO VÁLIDA!')
-            self.tipo_de_cerveja=input('Selecione novamente o tipo de cerveja: \n (1)Cerveja Lupulada \n (2)Cerveja Maltada \n (3)Cerveja Equilibrada\n')
-            while self.tipo_de_cerveja!='1' and self.tipo_de_cerveja!='2'and self.tipo_de_cerveja!='3':
-                print('ERRO!OPÇÃO DIGITADA NÃO É UMA OPÇÃO VÁLIDA!')
-                self.tipo_de_cerveja=input('Selecione novamente o tipo de cerveja: \n (1)Cerveja Lupulada \n (2)Cerveja Maltada \n (3)Cerveja Equilibrada \n')
-            if self.tipo_de_cerveja == '1':
-                print('Cerveja Lupulada selecionada!')
-                self.tipoc = 'Cerveja Lupulada'
-            if self.tipo_de_cerveja == '2':
-                print('Cerveja Maltada selecionada!')
-                self.tipoc = 'Cerveja Maltada'
-            if self.tipo_de_cerveja == '3':
-                print('Cerveja Equilibrada selecionada!')
-                self.tipoc = 'Cerveja Equilibrada'
-        self.litros=input('Informe a quantidade(em litros):\n')
-        if self.litros.isdecimal()==False:
-            print('ERRO!OPÇÃO DIGITADA NÃO É UMA OPÇÃO VÁLIDA!')
-            self.litros = input('Informe novamente a quantidade(em litros):\n')
-            while self.litros.isdecimal()==False:
-                print('ERRO!OPÇÃO DIGITADA NÃO É UMA OPÇÃO VÁLIDA!')
-                self.litros = input('Informe novamente a quantidade(em litros):\n')
-            self.litros=int(self.litros)
-        else:
-            self.litros = int(self.litros)
-
-
+    def __init__(self,agua,cerveja,litro):
+        self.tipo_de_Agua=agua
+        self.tipo_de_cerveja=cerveja
+        self.litros=litro
     def calculo_sulfato_de_calcio(self):
         if self.tipo_de_Agua == '1':
             if self.tipo_de_cerveja=='1':
@@ -74,6 +19,7 @@ class calculo_sais():
                 self.calculo_sc = (self.litros * 0.1) / 10
             elif self.tipo_de_cerveja=='3':
                 self.calculo_sc = (self.litros * 2) / 10
+        return self.calculo_sc
     def calculo_sulfato_de_magnesio(self):
         if self.tipo_de_Agua == '1':
             if self.tipo_de_cerveja=='1':
@@ -89,6 +35,7 @@ class calculo_sais():
                 self.calculo_sm = (self.litros * 0.9) / 10
             elif self.tipo_de_cerveja=='3':
                 self.calculo_sm = (self.litros * 0.8) / 10
+        return self.calculo_sm
     def calculo_cloreto_de_calcio(self):
         if self.tipo_de_Agua == '1':
             if self.tipo_de_cerveja == '1':
@@ -104,6 +51,7 @@ class calculo_sais():
                 self.calculo_cc = (self.litros * 3.9) / 10
             elif self.tipo_de_cerveja == '3':
                 self.calculo_cc = (self.litros * 2.3) / 10
+        return self.calculo_cc
     def resultado(self):
         self.calculo_cloreto_de_calcio()
         self.calculo_sulfato_de_calcio()

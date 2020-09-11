@@ -33,7 +33,7 @@ class interface:
 
 
         #Adicionando Botão
-        self.botao_lavagem=Button(self.frame_lavagem,text='Selecionar',command=self.validar_dado)
+        self.botao_lavagem=Button(self.frame_lavagem,text='Selecionar',command=self.janela_lavagem)
 
 
         #Empacotando dados da janela principal
@@ -60,22 +60,36 @@ class interface:
 
         if self.litros.get() !="":
            if self.litros.get().isalpha():
-               self.entry_litros.delete(0,len(self.litros.get()))
-               self.litros.set("")
-               messagebox.showerror("ERRO!","Valor digitado não é válido!")
+               return False
+               #messagebox.showerror("ERRO!","Valor digitado não é válido!")
 
            elif self.litros.get().isspace():
-               self.entry_litros.delete(0, len(self.litros.get()))
-               self.litros.set("")
-               messagebox.showerror("ERRO!", "Valor digitado não é válido!")
+               return False
+               #messagebox.showerror("ERRO!", "Valor digitado não é válido!")
            else:
                try:
                    float(self.litros.get())
+                   if float(self.litros.get())<0:
+                       return False
+                   else:
+                       return True
                except:
-                   self.entry_litros.delete(0, len(self.litros.get()))
-                   self.litros.set("")
-                   messagebox.showerror("ERRO!", "Valor digitado não é válido!")
-    #def janela_lavagem(self):
+                   return False
+                   #messagebox.showerror("ERRO!", "Valor digitado não é válido!")
+
+    def janela_lavagem(self):
+         self.validacao=self.validar_dado()
+
+         if self.validacao:
+             self.janela_lavagem_=Toplevel()
+             self.janela_lavagem_.geometry('350x500')
+             self.janela_lavagem_.mainloop()
+         elif self.litros.get()=="":
+             messagebox.showerror("ERRO!", "Digite a quantidade de Litros!")
+         else:
+             self.entry_litros.delete(0, len(self.litros.get()))
+             self.litros.set("")
+             messagebox.showerror("ERRO!", "Valor digitado não é válido!")
 
 
 
