@@ -55,7 +55,6 @@ class interface:
         self.frame_lavagem.pack()
         self.frame_mostura.pack()
         self.janela_principal.mainloop()
-
     def validar_dado(self):
 
         if self.litros.get() !="":
@@ -76,16 +75,32 @@ class interface:
                except:
                    return False
                    #messagebox.showerror("ERRO!", "Valor digitado não é válido!")
-
     def janela_lavagem(self):
          self.validacao=self.validar_dado()
          self.agua='1'
          if self.validacao:
              self.janela_lavagem_=Toplevel()
              self.janela_lavagem_.geometry('350x500')
+             self.janela_lavagem_.config(bg='white')
              self.calculando=Calculadora_de_Sais.calculo_sais(self.agua,float(self.litros.get()))
-             self.sulfato_calcio=self.calculando.calculo_sulfato_de_calcio()
+
+             #Calculo Sulfato de cálcio
+             self.cev_lupulada_sc=self.calculando.cerveja_lupulada_sulfato_de_Calcio()
+             self.cev_maltada_sc=self.calculando.cerveja_maltada_sulfato_de_Calcio()
+             self.cev_equilibrada_sc=self.calculando.cerveja_equilibrada_sulfato_de_Calcio()
+
+             #Cálculo Sulfato de magnésio
+             self.cev_lupulada_sm = self.calculando.cerveja_lupulada_sulfato_de_magnesio()
+             self.cev_maltada_sm = self.calculando.cerveja_maltada_sulfato_de_magnesio()
+             self.cev_equilibrada_sm = self.calculando.cerveja_equilibrada_sulfato_de_magnesio()
+
+             #Cálculo Cloreto de Cálcio
+             self.cev_lupulada_cc = self.calculando.cerveja_lupulada_cloreto_De_calcio()
+             self.cev_maltada_cc = self.calculando.cerveja_maltada_cloreto_De_calcio()
+             self.cev_equilibrada_cc = self.calculando.cerveja_equilibrada_cloreto_de_calcio()
+
              self.janela_lavagem_.mainloop()
+
          elif self.litros.get()=="":
              messagebox.showerror("ERRO!", "Digite a quantidade de Litros!")
          else:
@@ -93,6 +108,38 @@ class interface:
              self.litros.set("")
              messagebox.showerror("ERRO!", "Valor digitado não é válido!")
 
+    def janela_mostura(self):
+        self.validacao = self.validar_dado()
+        self.agua = '2'
+        if self.validacao:
+            self.janela_mostura_ = Toplevel()
+            self.janela_mostura_.geometry('350x500')
+            self.janela_mostura_.config(bg='white')
+            self.calculando = Calculadora_de_Sais.calculo_sais(self.agua, float(self.litros.get()))
+
+            # Calculo Sulfato de cálcio
+            self.cev_lupulada_sc = self.calculando.cerveja_lupulada_sulfato_de_Calcio()
+            self.cev_maltada_sc = self.calculando.cerveja_maltada_sulfato_de_Calcio()
+            self.cev_equilibrada_sc = self.calculando.cerveja_equilibrada_sulfato_de_Calcio()
+
+            # Cálculo Sulfato de magnésio
+            self.cev_lupulada_sm = self.calculando.cerveja_lupulada_sulfato_de_magnesio()
+            self.cev_maltada_sm = self.calculando.cerveja_maltada_sulfato_de_magnesio()
+            self.cev_equilibrada_sm = self.calculando.cerveja_equilibrada_sulfato_de_magnesio()
+
+            # Cálculo Cloreto de Cálcio
+            self.cev_lupulada_cc = self.calculando.cerveja_lupulada_cloreto_De_calcio()
+            self.cev_maltada_cc = self.calculando.cerveja_maltada_cloreto_De_calcio()
+            self.cev_equilibrada_cc = self.calculando.cerveja_equilibrada_cloreto_de_calcio()
+
+            self.janela_mostura_.mainloop()
+
+        elif self.litros.get() == "":
+            messagebox.showerror("ERRO!", "Digite a quantidade de Litros!")
+        else:
+            self.entry_litros.delete(0, len(self.litros.get()))
+            self.litros.set("")
+            messagebox.showerror("ERRO!", "Valor digitado não é válido!")
 
 
 if __name__ == '__main__':
