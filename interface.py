@@ -99,6 +99,81 @@ class interface:
              self.cev_maltada_cc = self.calculando.cerveja_maltada_cloreto_De_calcio()
              self.cev_equilibrada_cc = self.calculando.cerveja_equilibrada_cloreto_de_calcio()
 
+             #Frames
+             self.frame_agua_l=Frame(self.janela_lavagem_)
+             self.frame_espaco_l=Frame(self.janela_lavagem_)
+
+             #Cerveja Lupulada
+             self.frame_nome_cerveja_lupulada=Frame(self.janela_lavagem_,bg='white')
+             self.frame_cerveja_lupulada_sc=Frame(self.janela_lavagem_,bg='white')
+             self.frame_cerveja_lupulada_sm = Frame(self.janela_lavagem_,bg='white')
+             self.frame_cerveja_lupulada_cc = Frame(self.janela_lavagem_)
+
+             #Cerveja Maltada
+             self.frame_nome_cerveja_maltada= Frame(self.janela_lavagem_, bg='white')
+             self.frame_cerveja_maltada_sc = Frame(self.janela_lavagem_)
+             self.frame_cerveja_maltada_sm = Frame(self.janela_lavagem_)
+             self.frame_cerveja_maltada_cc = Frame(self.janela_lavagem_)
+
+             #Cerveja Equilibrada
+             self.frame_nome_cerveja_equilibrada = Frame(self.janela_lavagem_, bg='white')
+             self.frame_cerveja_equilibrada_sc = Frame(self.janela_lavagem_)
+             self.frame_cerveja_equilibrada_sm = Frame(self.janela_lavagem_)
+             self.frame_cerveja_equilibrada_cc = Frame(self.janela_lavagem_)
+
+             #Labels
+             self.label_agua_l=Label(self.frame_agua_l,height=2,width=28,bg='gray26',fg='white',text='Água de Lavagem',font=('arial black',18),anchor=CENTER)
+             #self.label_espaco_l=Label(self.frame_espaco_l,height=1,width=7,bg='white')
+
+             # Cerveja Lupulada
+             self.label_nome_cl=Label(self.frame_nome_cerveja_lupulada,text='Cerveja Lupulada',height=2,width=20,bg='white',font=('arial black',11),anchor=CENTER)
+             #Sulfato de Cálcio
+             self.label_cl_sc=Label(self.frame_cerveja_lupulada_sc,text='Sulfato de Cálcio(em g)',height=2,width=20,bg='gray46',anchor=W)
+             self.labelcl_sc_resultado=Label(self.frame_cerveja_lupulada_sc,text='%.2f'%self.cev_lupulada_sc,bg='white',font=('arial black',12),anchor=E)
+             #Sulfato de Magnésio
+             self.label_cl_sm = Label(self.frame_cerveja_lupulada_sm, text='Sulfato de Magnésio(em g)', height=2,width=20, bg='gray46', anchor=W)
+             self.labelcl_sm_resultado = Label(self.frame_cerveja_lupulada_sm, text='%.2f' % self.cev_lupulada_sm,bg='white', font=('arial black', 12), anchor=E)
+
+
+
+             #Empacotando dados da janela lavagem
+             # Labels
+             self.label_agua_l.pack()
+             #self.label_espaco_l.pack(side=TOP)
+
+
+             #Cerveja Lupulada
+             self.label_nome_cl.pack()
+             #Sulfato de cálcio
+             self.label_cl_sc.pack(side=LEFT)
+             self.labelcl_sc_resultado.pack(side=RIGHT)
+             #sulfato de magnésio
+             self.label_cl_sm.pack(side=LEFT)
+             self.labelcl_sm_resultado.pack(side=RIGHT)
+             #Cloreto de Cálcio
+
+             #Frames
+             self.frame_agua_l.pack()
+             #self.frame_espaco_l.pack()
+
+             #cerveja Lupulada
+             self.frame_nome_cerveja_lupulada.pack(side=TOP)
+             self.frame_cerveja_lupulada_sc.pack(side=TOP,fill="both",after=self.frame_nome_cerveja_lupulada)
+             self.frame_cerveja_lupulada_sm.packpack(side=TOP,fill="both",after=self.frame_cerveja_lupulada_sc)
+             self.frame_cerveja_lupulada_cc.pack()
+
+             #Cerveja Maltada
+             self.frame_nome_cerveja_maltada.pack()
+             self.frame_cerveja_maltada_sc.pack()
+             self.frame_cerveja_maltada_sm.pack()
+             self.frame_cerveja_maltada_cc.pack()
+
+             #Cerveja Equilibrada
+             self.frame_nome_cerveja_equilibrada.pack()
+             self.frame_cerveja_equilibrada_sc.pack()
+             self.frame_cerveja_equilibrada_sm.pack()
+             self.frame_cerveja_equilibrada_cc.pack()
+
              self.janela_lavagem_.mainloop()
 
          elif self.litros.get()=="":
@@ -145,5 +220,3 @@ class interface:
 if __name__ == '__main__':
     obj=interface()
     print('fim')
-
-
