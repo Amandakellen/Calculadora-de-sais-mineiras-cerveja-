@@ -10,7 +10,7 @@ class interface:
     def __init__(self):
         #definindo configurações da janela principal
         self.janela_principal = Tk()
-        self.janela_principal.title('Zalino')
+        self.janela_principal.title('Zalino Water')
         self.janela_principal.geometry('400x550')
         self.janela_principal.resizable(False, False)
         self.janela_principal.config(bg='white')
@@ -29,7 +29,7 @@ class interface:
         self.frame_rodape=Frame(self.janela_principal,bg='white')
 
         #Adicionando Labels da janela principal
-        self.label_nome=Label(self.frame_titulo,height=2,width=28,fg='white',bg='gray26',text="Zalino",font=('arial black',18),anchor=CENTER)
+        self.label_nome=Label(self.frame_titulo,height=2,width=28,fg='white',bg='gray26',text="Zalino Water",font=('arial black',18),anchor=CENTER)
         self.label_litros=Label(self.frame_litros,height=2,width=18,fg='white',bg='gray38',text="Quantidade de Litros",anchor=W)
         self.label_lavagem=Label(self.frame_lavagem,height=3,width=18,fg='white',bg='gray46',relief=FLAT,text="Água de Lavagem",anchor=CENTER)
         self.label_espaco=Label(self.frame_espaco,height=4,width=18,bg='white')
