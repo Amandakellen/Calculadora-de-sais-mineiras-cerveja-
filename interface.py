@@ -11,8 +11,8 @@ class interface:
         #definindo configurações da janela principal
         self.janela_principal = Tk()
         self.janela_principal.title('Zalino Water')
-        self.janela_principal.geometry('460x750')
-        #self.janela_principal.resizable(False, False)
+        self.janela_principal.geometry('450x700')
+        self.janela_principal.resizable(False, False)
         self.icone=PhotoImage(file='simbolo.png')
         self.janela_principal.iconphoto(True, self.icone)
         self.imagem=PhotoImage(file='Zalino Water.png')
